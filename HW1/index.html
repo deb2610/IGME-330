@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+font-size: 1.3em;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Greeter</h1>
+    <input placeholder="Type Your Name">
+    <button>Greet</button>
+    <p id="output">???</p>
+</body>
+<script>
+
+    function init(){
+        document.querySelector("button").onclick = ButtonClick;
+    }
+    function ButtonClick(){
+        console.log("button!");
+        let name = document.querySelector("input").value;
+        let output = document.querySelector("#output");
+        if (name == false){
+            output.innerHTML = "Hewwo Mister X";
+        } 
+        else{
+            output.innerHTML = "Hewwo " + name;
+        }
+
+    }
+    init();
+</script>
+</html>
