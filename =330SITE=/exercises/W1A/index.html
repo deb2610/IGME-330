@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0%;
+            padding: 0%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 8fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            height: 100vh;
+        }
+        header{
+            grid-column: 1/4;
+            grid-row: 1;
+            text-align: center;
+            background-color: brown;
+            color: white;
+        }
+        article{
+            grid-column: 2/3;
+            grid-row: 2;
+            font-size: 1.3em;
+            background-color: rgb(241, 149, 149);
+            padding: 15px;
+            text-align: center;
+        }
+        footer{
+            grid-column: 1/4;
+            grid-row: 3;
+            background-color: brown;
+            color: white;
+            font-size: 10pt;
+            text-align: center;
+        }
+        footer p{
+            margin: 10pt 10pt ;
+
+        }
+        #gButton{
+            width: 100px;
+            height: 50px;
+            border: none;
+            margin: 25px;
+            background-color: white;
+            color: brown;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 14pt;
+        }
+        #uglyButton{
+            border: none;
+            background-color: brown;
+            color: white;
+            padding: 4px 6px;
+        }
+        #output{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HW1 Greeter App</h1>
+        </header>    
+        <article>
+            <p>Type your name below and press the button for a nice greeting</p>
+            <div id="funbox">
+                <input placeholder="First Name" id="first">
+                <br/>
+                <input placeholder="Last Name" id="last">
+                <br/>
+                <button id="gButton">Greet</button>
+                 <br/>
+                <input type="text" id="output" disabled>
+                <br/>
+                <button id="uglyButton">Style Text</button>
+            </div>
+        </article>
+        <footer>
+            <p>Created by Declan E. Behan for IGME-330</p>
+        </footer>
+    </div>
+</body>
+<script>
+
+    function init(){
+        document.querySelector("#gButton").onclick = ButtonClick;
+        document.querySelector("#uglyButton").onclick = MakeUgly;
+
+    }
+    function ButtonClick(){
+        console.log("button!");
+        let first = document.querySelector("#first").value;
+        let last = document.querySelector("#last").value;
+        let concat = "DEFAULT";
+        let outputBox = document.querySelector("#output");
+    
+        if (first == false || last == false){
+            concat = "NOT VALID";
+        } 
+        else{
+            concat = first + " " + last;
+        }
+        outputBox.value = "Hello " + concat + "!";
+    }
+    function MakeUgly(){
+        let outputBox = document.querySelector("#output");
+        if(outputBox.style.backgroundColor == "white"){
+            outputBox.style.backgroundColor = "yellow";
+            outputBox.style.color = "red";
+        }else{
+            outputBox.style.backgroundColor = "white";
+            outputBox.style.color = "gray";
+        }
+        
+
+
+    }
+
+    init();
+</script>
+</html>

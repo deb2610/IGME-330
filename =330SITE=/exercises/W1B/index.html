@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Walker-1</title>
+	<style>
+	canvas{
+		border:1px solid gray;
+	}
+	</style>
+	<script>
+	
+    console.log("Creating Walker");
+    //changed the object literals to es6 classes because i like them better and it practived new technologies
+    class walker{
+        constructor(x,y,color,width){
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.width = width;
+        }
+        move(){
+			if(flipWeightedCoin()){
+				this.x += flipWeightedCoin() ? -this.width : this.width;
+			}else{
+				this.y += flipWeightedCoin() ? -this.width : this.width;
+			}
+		}
+    }
+		// #0 - in this class we will always use ECMAScript 5's "strict" mode
+		// See what 'use strict' does here:
+		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
+		'use strict';
+        let ctx;
+
+        //created an array and added instances of a class to it instead of object literals
+        let walkerArray = [];
+        let w1 = new walker(320,240,getRandomColor(),10);
+        let w2 = new walker(320,240,getRandomColor(),10);
+        let w3 = new walker(320,240,getRandomColor(),10);
+        let w4 = new walker(320,240,getRandomColor(),10);
+        let w5 = new walker(320,240,getRandomColor(),10);
+
+        walkerArray[0] = w1;
+        walkerArray[1] = w2;
+        walkerArray[2] = w3;
+        walkerArray[3] = w4;
+        walkerArray[4] = w5; 
+
+        //console.log(walkerArray.length);
+        //console.log(walkerArray[0].color);
+		// #1 call the init function after the pages loads
+		window.onload = function(){
+			console.log("page loaded!");
+			// #2 Now that the page has loaded, start drawing!
+           
+			// A - canvas variable points at <canvas> tag
+			let canvas = document.querySelector('canvas');
+			
+			// B - the ctx variable points at a "2D drawing context"
+			ctx = canvas.getContext('2d');
+			
+			// C - all fill operations are now in red
+			ctx.fillStyle = 'white'; 
+			
+			// D - fill a rectangle with the current fill color
+			ctx.fillRect(20,20,600,440); 
+            let startBut = document.querySelector("button");
+            
+	//		setInterval(cls,5000);
+		}
+		
+		//method the draw the walker. it gets info from the es6 class
+		function drawWalker(){
+            for (i = 0; i < walkerArray.length; i++) {
+                console.log("Drawing");
+                ctx.fillStyle = walkerArray[i].color;
+            //	ctx.globalAlpha = 0.2;
+                ctx.fillRect(walkerArray[i].x-walkerArray[i].width/2,walkerArray[i].y-walkerArray[i].width/2,walkerArray[i].width-1,walkerArray[i].width-1);
+                walkerArray[i].move();
+            }
+        }
+        //this button starts the walker at a speed
+        function startWalk(){
+            let slider = document.querySelector("#slider");
+            let modifier = slider.value;
+            setInterval(drawWalker,(1000/modifier));
+        }
+		
+		// UTILS
+		function getRandomColor(){
+			function getByte(){
+				return 55 + Math.round(Math.random() * 200);
+			}
+			return "rgba(" + getByte() + "," + getByte() + "," + getByte() + ",.4)";
+		}
+		
+		function cls(){
+			ctx.clearRect(0,0,640,480);
+		}
+		
+		function flipWeightedCoin(weight = 0.5){
+			return Math.random() < weight;
+            }
+           
+	</script>
+</head>
+<body>
+	<canvas width="640" height="480">
+		Get a real browser!
+    </canvas>
+    <br/>
+    Set Speed: 
+    <input type="range" min="1" max="100" value="100" id="slider">
+    <button onclick="startWalk()">Start</button>
+</body>
+</html>
