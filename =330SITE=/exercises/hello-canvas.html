@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Declan Behan Hello Canvas</title>
+	<style type="text/css">
+	canvas{
+		border:1px solid gray;
+	}
+	#fontLoader {
+		height: 0;
+		width: 0;
+		overflow: hidden;
+	}
+	#indie {
+		font-family: 'Indie Flower', cursive;
+	}
+	#lobster {
+		font-family: 'Lobster', cursive;
+	}
+	#anon {
+		font-family: 'Anonymous Pro', monospace;
+	}
+	</style>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+	<script>
+		// This is Declan Project for Hello Canvas. Created on 1/21/19
+		'use strict';
+		
+		// #1 call the init function after the pages loads
+		window.onload = init;
+	
+		function init(){
+			// #2 Now that the page has loaded, start drawing!
+			console.log('init called');
+			
+			// A - canvas variable points at <canvas> tag
+			var canvas = document.querySelector("canvas");
+			
+			// B - the ctx variable points at a "2D drawing context"
+			var ctx = canvas.getContext("2d");
+			
+			// C - all fill operations are now in yellow
+			ctx.fillStyle = 'black';
+			
+			// D - fill a rectangle with the current fill color
+			ctx.fillRect(0,0,640,480);
+			
+			// E - set the current font
+			ctx.font = 'bold 50pt Anonymous Pro';
+
+			
+			// F - change the current fill color
+			ctx.fillStyle = '#00AA00';
+			
+			//var to fine tune a few values down stream
+			let xMod = 25;
+			
+			//saves state
+			ctx.save();
+
+			//cool shadow effects
+			ctx.shadowColor = "greenyellow";
+			ctx.shadowOffsetX = 0;
+			ctx.shadowOffsetY = 0;
+			ctx.shadowBlur = 30;
+			
+			//ctx.restore()
+
+			// horizontal alignment
+			ctx.textAlign = "center";
+			// vertical alignment
+			ctx.textBaseline = "middle";
+
+			// G - draw and fill text using current fill color
+			ctx.fillRect(10+xMod,212,20,20);
+			ctx.fillText('Declan Behan',320,220);
+			ctx.fillRect(545+xMod,212,20,20);
+			
+			//changes font to anon
+			ctx.font = 'bold 25pt Anonymous Pro';
+
+			ctx.fillText('IGM Hackerman!',320,300);
+
+
+			//bottom triangle
+			ctx.fillStyle = "greenyellow"
+			ctx.beginPath();
+			ctx.moveTo(320, 340);
+			ctx.lineTo(640, 480);
+			ctx.lineTo(0, 480);
+			ctx.fill();
+			
+			//top triangle
+			ctx.fillStyle = "greenyellow"
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.lineTo(640, 0);
+			ctx.lineTo(320, 160);
+			ctx.fill();
+
+			//Line Paths
+			
+			// 2 more drawing state variables
+			ctx.strokeStyle = "greenyellow";
+			ctx.lineWidth = 7;
+
+			// start defining a path - in this case just a line
+			ctx.beginPath();
+			// move a "pen" to 0,100
+			ctx.moveTo(0,160);
+			// draw to 640,100
+			ctx.lineTo(640,160);
+			// close the path
+			ctx.closePath();
+			// stroke the path so we can see it
+			ctx.stroke();
+
+			ctx.beginPath();
+			// move a "pen" to 0,100
+			ctx.moveTo(0,340);
+			// draw to 640,100
+			ctx.lineTo(640,340);
+			// close the path
+			ctx.closePath();
+			// stroke the path so we can see it
+			ctx.stroke();
+
+		}
+	</script>
+</head>
+<body>
+	<canvas width="640" height="480">
+		Get a real browser!
+		<!-- The user will only see the above text if their browser is older and doesn't support <canvas> -->
+	</canvas>
+	<!-- font loader -->
+	<div id="fontLoader">
+		<p id="indie">Indie Font</p>
+		<p id="lobster">Lobster Font</p>
+		<p id="anon">Anonymous Pro Font</p>
+
+	</div>
+</body>
+</html>
