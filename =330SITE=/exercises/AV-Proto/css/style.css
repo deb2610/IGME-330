@@ -1,0 +1,90 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 5% 1fr 2%; 
+    background-color: rgb(110, 0, 0);
+    height: 100vh;
+    margin: 0;
+}
+.containerGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+header{
+    padding-top: 15px;
+    grid-column: 2 / 12;
+    grid-row: 1;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 24pt;
+}
+article{
+    grid-column: 2/8;
+    grid-row: 2;
+    color: white;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14pt;
+    background-color: rgb(71, 75, 75);
+}
+aside{
+    grid-column: 8/12;
+    color: white;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    grid-row: 2;
+    background-color: rgb(0, 0, 0);
+}
+footer {
+    grid-column: 2/ 12;
+    grid-row: 3;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14pt;
+  }
+header,
+footer {
+  /* border-radius: 5px; */
+  color: white;
+  /* padding: 10px; */
+  background-color: rgb(10, 0, 54);
+  /* border: 2px solid rgb(79,185,227); */
+}
+
+
+
+
+/* Relabel these */
+canvas {
+    margin-left:10px;
+    margin-top:10px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    background: black;
+}
+
+#controls{
+    margin-left:10px;
+    margin-top:10px;
+}
+
+section{
+  margin-bottom:1em;
+}
+
+#playButton{
+  font-size: 1.2em;
+  width: 3.5em;
+}
+
+button[data-playing="yes"]:after{
+    content: "Pause";
+}
+
+button[data-playing="no"]:after{
+    content: "Play";
+}
+
+#fsButton{
+  font-size: 1.2em;
+  width: 6em;
+}

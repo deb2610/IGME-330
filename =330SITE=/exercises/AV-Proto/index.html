@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Declan AV</title>
+    <link href="css/style.css" rel="stylesheet">
+		<script src="js/bpmScript.js"></script>
+		<script src="js/avScript.js"></script>
+
+    <title>Declan Behan</title>
+</head>
+<body>
+    <div class="container">
+        <header>IGME 330 Audio Visualizer Prototype</header>
+  <article>
+    <h1>Visualizer</h1>
+    <canvas width="640" height="400"></canvas>
+		<audio controls>
+				<source id="audioSource" src="media/Goodbye To A World.mp3"></source>
+		</audio>
+		<p>
+				Most likely tempo: <span id="output"></span>
+		</p>
+	
+  </article>
+  <aside>
+    <h2>Controls</h2>
+		<div id="controls">
+			<section>
+			<label>Track: 
+				<select id="trackSelect">
+					<option value="media/Final Boss.mp3">Final Boss</option>
+					<option value="media/Legend (ft. Backchat).mp3">Legend (ft Backchat)</option>
+					<option value="media/Wonderland - Round Three.mp3">Wonderland - Round Three</option>
+					<option value="media/Goodbye To A World.mp3" selected>Goodbye To A World</option>
+					<option value="media/Septic Shock.mp3" >Septic Shock</option>
+
+				</select>
+			</label>
+			<!-- <button id="playButton" data-playing="no"></button> -->
+			<button id="fsButton">Full Screen</button>
+			</section>
+			<section>
+				Volume: <input type="range" id="volumeSlider" min="0" max="2" value="1" step="0.01">
+				<span id="volumeLabel">???</span>
+			</section>
+			<section>
+				Circle Radius: <input type="range" id="circleSlider" min="0" max="200" value="100" step="1.0">
+				<span id="circleLabel">???</span>
+			</section>
+			<section>
+				Fun Value: <input type="range" id="funSlider" min="-5" max="5" value=".5" step="0.1">
+				<span id="funLabel">.5</span>
+					</section>
+					<section id>
+							Visualizer:  <br/><br/>
+							Bars: <input type="checkbox" id="Bars" value="showBars"><br/>
+							Circles: <input type="checkbox" id="Circles" value="showCircle"> <br/>
+							Line: <input type="checkbox" id="Line" value="showLine" checked> <br/>
+							BeatSaber: <input type="checkbox" id="BeatSaber" value="showBeatSaber" checked> 
+
+					</section>
+			<!-- <section>
+				Visual Toggles: <br/><br/>
+				Red Tint:<input type="checkbox" id="checkRed" value="tintRed">
+				Invert:<input type="checkbox" id="checkInvert" value="invert">
+				Noise:<input type="checkbox" id="checkNoise" value="noise">
+				Sepia:<input type="checkbox" id="checkSepia" value="sepia">	
+			</section> -->
+			</div>
+	</aside>
+  <footer>Made by: Declan Behan 2019</footer>
+    </div>
+</body>
+</html>
