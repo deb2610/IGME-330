@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Declan AV</title>
+		<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">		
+	</head>
+	<body>
+		<div class="container">
+			<header>BeatSaber Visualizer</header>
+			<div id="myModal" class="modal">
+				
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="close">&times;</span>
+						<h2>Hey there!</h2>
+					</div>
+					<div class="modal-body">
+						<p>It looks like this song has a lightshow configured!</p>
+						<p>Would you like to see it?</p>
+						<p>(Customization options will be hidden until the end of the song)</p>
+					</div>
+					<div class="modal-footer">
+						<input type="button" id="btnYes" class="button" value="Heck Yeah!">
+						<input type="button" id="btnNo"  class="button" value="I'm good...">
+
+					</div>
+				</div>
+				
+			</div>
+			
+			<article>
+				<!-- <h1>Visualizer</h1> -->
+				<canvas width="640" height="400"></canvas>
+				<audio controls>
+					<source id="audioSource" src="media/GoodbyeToAWorld.mp3">
+				</audio>
+				<p>
+					<!-- Most likely tempo: <span id="output"></span> -->
+				</p>
+				
+			</article>
+			<aside>
+				<h1>Controls</h1>
+				<div id="controls">
+					<section>
+						<label>Track: 
+							<select id="trackSelect">
+								<option value="media/FinalBoss.mp3">Final Boss</option>
+								<option value="media/Legend(ft.Backchat).mp3">Legend (ft Backchat)</option>
+								<option value="media/Wonderland-RoundThree.mp3">Wonderland - Round Three</option>
+								<option value="media/GoodbyeToAWorld.mp3" selected>Goodbye To A World</option>
+								<option value="media/SepticShock.mp3" >Septic Shock</option>
+								
+							</select>
+						</label>
+						<button id="fsButton">Full Screen</button>
+					</section>
+					<section>
+						Volume: <span id="volumeLabel">???</span> 
+						<input type="range" id="volumeSlider" class="slider" min="0" max="2" value="1" step="0.01">
+						
+					</section>
+					<section  id="circleSect">
+						Circle Radius: <span id="circleLabel">???</span>
+						<input type="range" id="circleSlider" class="slider" min="0" max="200" value="100" step="1.0">
+						
+					</section>
+					<section id="waveSect">
+						Wavelength Value: <span id="waveLabel">40</span>
+						<input type="range" id="waveSlider" class="slider" min="0" max="128" value="40" step="1">
+						
+					</section>
+					<section id="funSect">
+						Fun Value: <span id="funLabel">.5</span>
+						<input type="range" id="funSlider" class="slider" min="-5" max="5" value=".5" step="0.1">
+						
+					</section>
+					<section id="visualizers">
+						<h1>Visualizers: </h1>
+						<label class="checkcontainer">Bars
+							<input type="checkbox" id="Bars" class="checkbox" value="showBars">
+							<span class="checkmark"></span>
+						</label>
+						<label class="checkcontainer">Circles
+							<input type="checkbox" id="Circles" class="checkbox" value="showCircle">
+							<span class="checkmark"></span>
+						</label>
+						<label class="checkcontainer">Line
+							<input type="checkbox" id="Line" class="checkbox" value="showLine" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+						<label class="checkcontainer">Wavelength
+							<input type="checkbox" id="Wave" class="checkbox" value="showWave" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+						<label class="checkcontainer">BeatSaber
+							<input type="checkbox" id="BeatSaber" class="checkbox" value="showBeatSaber" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+						<!-- Visualizer:  <br/><br/>
+							Bars: <input type="checkbox" id="Bars" value="showBars"><br/>
+							Circles: <input type="checkbox" id="Circles" value="showCircle"> <br/>
+							Line: <input type="checkbox" id="Line" value="showLine" checked> <br/>
+							Wavelenth: <input type="checkbox" id="Wave" value="showWave" checked> <br/>
+							BeatSaber: <input type="checkbox" id="BeatSaber" value="showBeatSaber" checked>  -->
+							
+						</section>
+						<section>
+							<h1>Color Profile</h1>
+							<label class="radiocontainer">Classic
+								<input type="radio" value="radClassic" checked="checked" name="colorSel" class="colorSel">
+								<span class="tickmark"></span>
+							</label>
+							<label class="radiocontainer">Popstar
+								<input type="radio" value="radPopstar" name="colorSel" class="colorSel">
+								<span class="tickmark"></span>
+							</label>
+							<label class="radiocontainer">Vaporwave
+								<input type="radio" value="radVapor" name="colorSel" class="colorSel">
+								<span class="tickmark"></span>
+							</label>
+							<label class="radiocontainer">FollieFire
+								<input type="radio" value="radFollieFire" name="colorSel" class="colorSel">
+								<span class="tickmark"></span>
+							</label>
+						</section>
+						<section>
+							<h1>Advanced Modifications:</h1>
+							<!-- Red Tint:<input type="checkbox" id="checkRed" value="tintRed"> -->
+							<label class="checkcontainer">Invert Colors	
+								<input type="checkbox" id="checkInvert" class="checkbox" value="invert">
+								<span class="checkmark"></span>
+							</label>
+							<section>
+									<h3>Audio Filter</h3>
+									<label class="radiocontainer">Unchanged
+										<input type="radio" value="allpass" checked="checked" name="aMod" class="aMod">
+										<span class="tickmark"></span>
+									</label>
+									<label class="radiocontainer">Lowpass
+										<input type="radio" value="lowpass" name="aMod" class="aMod">
+										<span class="tickmark"></span>
+									</label>
+									<label class="radiocontainer">Highpass
+										<input type="radio" value="highpass" name="aMod" class="aMod">
+										<span class="tickmark"></span>
+									</label>
+								</section>
+
+							<!-- Noise:<input type="checkbox" id="checkNoise" value="noise">
+							Sepia:<input type="checkbox" id="checkSepia" value="sepia">	 -->
+						</section>
+					</div>
+				</aside>
+				<footer>Made by: Declan Behan 2019</footer>
+			</div>
+			<script src="js/utilScript.js"></script>
+			<script src="js/modScript.js"></script>
+			<script src="js/mainScript.js"></script>
+			<script src="js/colorScript.js"></script>
+		</body>
+		</html>

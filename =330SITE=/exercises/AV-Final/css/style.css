@@ -1,0 +1,379 @@
+body{
+  margin: 0;
+}
+.container{
+    display: grid;
+    grid-template-columns: 0fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0fr;
+    grid-template-rows: 6% 1fr 3%; 
+    background-color: white;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.containerGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+header{
+    padding-top: 15px;
+    grid-column: 2 / 12;
+    grid-row: 1;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;    
+    font-size: 24pt;
+    color: white;
+    background-color: rgb(0, 0, 155);
+}
+article{
+    grid-column: 2/8;
+    grid-row: 2;
+    color: white;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;    
+    font-size: 12pt;
+    background-color:  rgb(155, 0, 0);
+}
+aside{
+    grid-column: 8/12;
+    color: white;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    grid-row: 2;
+    background-color: rgb(0, 0, 0);
+}
+footer {
+    grid-column: 2/ 12;
+    grid-row: 3;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 14pt;
+    color: white;
+    background-color: rgb(0, 0, 155);
+  }
+
+audio{
+  width: 80%;
+}
+
+h1{
+  font-size: 18pt; 
+}
+/* Relabel these */
+canvas {
+    /* margin-left:10px; */
+    margin-top:10px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    background: black;
+    width: 90%;
+}
+
+#controls{
+    margin-left:10px;
+    margin-top:10px;
+}
+
+section{
+  margin-bottom:1em;
+}
+
+#playButton{
+  font-size: 1.2em;
+  width: 3.5em;
+}
+
+button[data-playing="yes"]:after{
+    content: "Pause";
+}
+
+button[data-playing="no"]:after{
+    content: "Play";
+}
+
+#fsButton{
+  font-size: 1.2em;
+  width: 6em;
+}
+
+/* Nice Sliders found on W3 Schools */
+/* https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.slider {
+  -webkit-appearance: none;
+  width: 90%;
+  height: 25px;
+  background: #ffffff;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  background: rgb(100, 100, 100);
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+/* End Sliders */
+/* https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+
+/* Custom Check marks */
+.checkcontainer {
+  margin-left: 40%;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+}
+
+/* Hide the browser's default checkbox */
+.checkcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkcontainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkcontainer input:checked ~ .checkmark {
+  background: rgb(100, 100, 100);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkcontainer .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* Custom checkoxes ends */
+
+/* Custom Radio Buttons */
+/* https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+/* The container */
+.radiocontainer {
+  margin-left: 40%;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: left;
+
+}
+
+/* Hide the browser's default radio button */
+.radiocontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.tickmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radiocontainer:hover input ~ .tickmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radiocontainer input:checked ~ .tickmark {
+  background-color:  rgb(100, 100, 100);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.tickmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radiocontainer input:checked ~ .tickmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radiocontainer .tickmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+/* Model Box sourced from w3 */
+/* https://www.w3schools.com/howto/howto_css_modals.asp */
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: rgb(100, 100, 100);
+  color: white;
+}
+.button {
+  background-color: rgb(200, 0, 0);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 12%;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* mobile scaling */
+@media only screen and (max-width: 900px) {
+  .container{
+    display: grid;
+    grid-template-columns: 0fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0fr;
+    grid-template-rows: 6% auto 1fr 3%; 
+    height: auto;
+    margin: 0;
+}
+aside {
+  grid-column: 2/12;
+  grid-row: 3;
+
+
+}
+article{
+  grid-column: 2/12;
+  grid-row: 2;
+
+  
+}
+footer{
+  grid-column: 2/ 12;
+  grid-row: 4;
+}
+}
+.color2{
+  background: rgb(0, 0, 155);
+}

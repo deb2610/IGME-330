@@ -1,0 +1,62 @@
+Hi there grading person! This is Declan Behan speaking. I'm not sure what you wanted in term so 
+documentation but for my above an beyond I did a modal box that 
+ask if you want to enable a lightshow for the first song. 
+If you choose yes the visuallizer changes to the music based on the part of the song. 
+I didnt have time to implemented that programaticaly so it was manually scripted.
+
+Any code that i referenced is siteied in the comments. most of it was W3 tutorials.
+
+1 Function
+	- I have a audio controller with progress indicator
+	- I have 4 Sliders, 6 Checkboxes, and 7 Radio buttons. amonster other things.
+	- I have a Song Picker and Fullscreen Button
+
+2 UI/UX
+	- Custom CSS Grid Layout
+	- Each UI Element is simply labeled.
+
+3 Canvas API Stuff
+	- I have an Invert option
+	- Wave shows waveform data, the rest show frequnecy data.
+	- Visualizers:
+		- Bars 
+		- Circles
+		- Wave
+		- Line
+		- Beatsaber Cube
+	- I use the state vars
+	- I save and load the context for the Beatsaber visualizer
+	- Looks nice!
+
+4 Web Audio
+	- Wave shows waveform data, the rest show frequnecy data.
+	- Filter node options included
+	- Sounds nice!
+
+5 HTML/CSS
+	- Valid HTML and CSS
+	- Exo 2 Font
+	- CSS Grid Layout
+
+6 Code
+	- JS Files
+	- Uses Let
+	- Modules broke it so I opted to remove them and have a working project then deliver something broken. Sorry
+	- External Sources
+		- https://www.w3schools.com/w3css/w3css_modal.asp
+		- https://stackoverflow.com/questions/1255512/how-to-draw-a-rounded-rectangle-on-html-canvas
+		- https://www.w3schools.com/howto/howto_js_rangeslider.asp
+		- https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
+		
+	- No inline events, jQuery, or logs.
+
+
+7 Impact (Above and Beyond)
+	- Beatsaber theme is relevent and fun
+	- color pallettes change the canvas and UI
+	- audio filters impact the visualizer
+	- Model box alets the user of special features.
+	- The lightshow feature makes the default song marvelous to watch.
+
+8 Housekeeping
+	- I acted alone I game it my all so i value my work at 100%
