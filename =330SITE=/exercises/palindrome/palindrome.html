@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Palindrome Finder</title>
+	<style>
+		body{font-family:sans-serif;}
+	</style>
+</head>
+<body>
+<h1>Palindrome Finder</h1>
+<section>
+	<p><input id="input" type="text" size="50" maxlength="50" autofocus value="Taco Cat" /></p>
+	<p id="output"></p>
+</section>
+<script>
+let input = document.querySelector("#input");
+let output = document.querySelector("#output");
+let palState = "not ";
+
+input.oninput = doChange; // called whenever the content of the field changes
+input.onchange = doChange; // called when the field loses focus or when the return key is pressed
+input.dispatchEvent(new Event("input")); // calls doInput() when the page first loads
+
+function doChange(e){
+  let text = e.target.value;
+	//output.innerHTML = text;
+  detectPal(text);
+	output.innerHTML = e.target.value + " is " + palState + "a palindrome!";
+}
+
+function detectPal(inPhrase){
+  let lower = inPhrase.toLowerCase();
+  let noSpace = lower.replace(/\s+/g, '')
+  let noShit = noSpace.replace(/['",.]+/g, '')
+  let reverse = noShit.split("").reverse().join("");
+
+  if(reverse == noShit){
+    palState = "";
+    output.style.color = "green";
+  }
+  else{
+    palState = "not ";
+    output.style.color = "red";
+  }
+}
+
+</script>
+</body>
+</html>
